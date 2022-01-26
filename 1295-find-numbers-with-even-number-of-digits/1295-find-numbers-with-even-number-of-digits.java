@@ -16,11 +16,6 @@ class Solution {
     }
     
     int digits(int num){
-        int digitcount = 0;
-        while (num>0){
-            digitcount++;
-            num = num/10;
-        }
-        return digitcount;
+        return (int)(Math.log10(num)) + 1;
     }
 }
