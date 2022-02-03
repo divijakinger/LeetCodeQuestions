@@ -10,7 +10,6 @@ class Solution {
                 i++;
             }
         }
-        System.out.println(Arrays.toString(arr));
 
         for (int index = 0; index < arr.length; index++) {
             if (arr[index] != index+1) {
