@@ -5,23 +5,23 @@ class Solution {
             k = Math.max(k,a);
         }
 
-        int right = 0;
-        int left = k;
+        int start = 0;
+        int end = k;
 
-        while(right<left){
+        while(start<end){
             int sum = 0;
-            int mid = (right + (left-right)/2);
+            int mid = (start + (end-start)/2);
 
             for (int i=0;i<arr.length;i++){
                 sum +=  Math.ceil((double) arr[i] / mid);
             }
 
             if (sum <= h){
-                left = mid;
+                end = mid;
             } else {
-                right = mid+1;
+                start = mid+1;
             }
         }
-      return left;  
+      return start;  
     }
 }   
