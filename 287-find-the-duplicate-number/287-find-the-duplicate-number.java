@@ -1,29 +1,19 @@
 class Solution {
     public int findDuplicate(int[] nums) {
-        //check, swap, move
-        int i = 0;
-
-        while (i < nums.length){
-            
-            if (nums[i] != i+1){
-                int correct = nums[i]-1;
-                if ( nums[i] != nums[correct]){
-                    swapArray(nums,i,correct);
-                } else {
-                    return nums[i];
-                }
-            } else {
-                i++;
+       int duplicate = -1;
+        for (int i = 0; i < nums.length; i++) {
+            int cur = Math.abs(nums[i]);
+            if (nums[cur] < 0) {
+                duplicate = cur;
+                break;
             }
+            nums[cur] *= -1;
         }
         
-        return -1;
+        // Restore numbers
+        for (int i = 0; i < nums.length; i++)
+            nums[i] = Math.abs(nums[i]);
 
-    }
-
-    void swapArray(int[] arr,int first,int second){
-        int temp = arr[first];
-        arr[first] = arr[second];
-        arr[second] = temp;
+        return duplicate;
     }
 }
